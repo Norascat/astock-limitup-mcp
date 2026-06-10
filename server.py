@@ -30,9 +30,11 @@ from common import (
     is_bj, is_st, limit_price, days_between, round2, market_of,
 )
 
-# Disable DNS-rebinding protection so Railway/Render reverse-proxy domains are accepted
+# stateless_http: no session required per request (needed for Feishu workflow)
+# enable_dns_rebinding_protection=False: allow Railway/Render reverse-proxy domains
 mcp = FastMCP(
     "astock-first-board",
+    stateless_http=True,
     transport_security=TransportSecuritySettings(enable_dns_rebinding_protection=False),
 )
 
