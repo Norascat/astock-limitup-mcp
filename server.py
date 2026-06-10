@@ -157,6 +157,7 @@ async def get_yesterday_first_board_today(yesterday: Optional[str] = None,
         rows.append({
             "股票代码": code,
             "股票名称": name_by.get(code, q.get("f14", "")),
+            "首板日期": yesterday,
             "今日涨跌幅(%)": chg,
             "开盘涨跌幅(%)": open_pct,
             "最高涨幅(%)": high_pct,
