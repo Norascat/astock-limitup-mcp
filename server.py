@@ -304,6 +304,8 @@ if __name__ == "__main__":
     transport = os.getenv("TRANSPORT", "streamable-http").lower()
     mcp.settings.host = os.getenv("HOST", "127.0.0.1")
     mcp.settings.port = int(os.getenv("PORT", "8000"))
+    # Allow all hosts so Railway/Render reverse-proxy domains work
+    mcp.settings.transport_security.enable_dns_rebinding_protection = False
     if transport in ("sse",):
         mcp.run(transport="sse")            # http://host:port/sse
     else:
