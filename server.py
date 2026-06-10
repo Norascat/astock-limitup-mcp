@@ -43,7 +43,7 @@ _NEW_STOCK_DAYS_DEFAULT = 90           # 次新股过滤阈值(自然日), 可�
 
 
 def _client() -> httpx.AsyncClient:
-    return httpx.AsyncClient(headers={}, follow_redirects=True)
+    return httpx.AsyncClient(headers={}, follow_redirects=True, trust_env=False)
 
 
 def _ipo_date(quote: dict) -> Optional[str]:
