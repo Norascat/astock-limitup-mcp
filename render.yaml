@@ -1,0 +1,13 @@
+# Render.com 一键部署：Dashboard -> New -> Blueprint -> 指向本仓库
+services:
+  - type: web
+    name: astock-first-board-mcp
+    runtime: docker
+    plan: free
+    envVars:
+      - key: HOST
+        value: 0.0.0.0
+      - key: TRANSPORT
+        value: streamable-http
+    healthCheckPath: /health
+# 部署后公网 MCP 地址 = https://<服务名>.onrender.com/mcp
